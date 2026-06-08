@@ -3,80 +3,855 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AutoFix Pro — Service Website Case Study by Harkaran Rangi (SEG3125 Portfolio)" />
-  <title>AutoFix Pro — Harkaran Rangi Portfolio</title>
+  <meta name="description" content="AutoFix Pro — Professional truck and fleet repair in Ottawa. Book your appointment online in minutes." />
+  <title>AutoFix Pro — Truck &amp; Fleet Repair | Ottawa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/style.css" />
 </head>
-<body class="bg-white text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-white text-slate-800 font-sans antialiased">
 
-  <!-- Top bar -->
-  <header class="bg-white border-b border-slate-100 sticky top-0 z-50 backdrop-blur-sm bg-white/90">
-    <div class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-      <a href="index.html" class="text-navy-800 font-bold text-lg tracking-tight hover:text-blue-600 transition-colors">
-        Harkaran Rangi
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header id="af-navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 transition-shadow duration-300">
+    <nav class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-2.5 group" aria-label="AutoFix Pro home">
+        <div class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-orange-200 transition-shadow">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <span class="font-bold text-lg text-slate-900 group-hover:text-orange-600 transition-colors">AutoFix Pro</span>
       </a>
-      <a href="index.html"
-         class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        Back to Portfolio
-      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <li><a href="#services"     class="hover:text-orange-600 transition-colors">Services</a></li>
+        <li><a href="#how-it-works" class="hover:text-orange-600 transition-colors">How It Works</a></li>
+        <li><a href="#about"        class="hover:text-orange-600 transition-colors">About Us</a></li>
+        <li><a href="#contact"      class="hover:text-orange-600 transition-colors">Contact</a></li>
+        <li>
+          <a href="#booking"
+             class="px-4 py-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors shadow-sm">
+            Book Now
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="af-menu-btn"
+        aria-controls="af-mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+        class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded">
+        <span class="hamburger-bar block w-5 h-0.5 bg-slate-700 transition-all duration-300 ease-in-out"></span>
+        <span class="hamburger-bar block w-5 h-0.5 bg-slate-700 transition-all duration-300 ease-in-out"></span>
+        <span class="hamburger-bar block w-5 h-0.5 bg-slate-700 transition-all duration-300 ease-in-out"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile dropdown -->
+    <div id="af-mobile-menu" class="md:hidden hidden bg-white border-t border-slate-100 px-6 pb-5" aria-label="Mobile navigation">
+      <ul class="flex flex-col gap-4 pt-4 text-sm font-medium text-slate-700">
+        <li><a href="#services"     class="block hover:text-orange-600 transition-colors">Services</a></li>
+        <li><a href="#how-it-works" class="block hover:text-orange-600 transition-colors">How It Works</a></li>
+        <li><a href="#about"        class="block hover:text-orange-600 transition-colors">About Us</a></li>
+        <li><a href="#contact"      class="block hover:text-orange-600 transition-colors">Contact</a></li>
+        <li>
+          <a href="#booking"
+             class="inline-block px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-semibold">
+            Book Now
+          </a>
+        </li>
+      </ul>
+      <div class="mt-4 pt-4 border-t border-slate-100">
+        <a href="index.html" class="text-xs text-slate-400 hover:text-slate-600 transition-colors">← Back to Portfolio</a>
+      </div>
     </div>
   </header>
 
-  <main class="flex-1 flex items-center justify-center py-20 px-6">
-    <div class="max-w-2xl w-full text-center">
+  <main>
 
-      <!-- Project icon / visual -->
-      <div class="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl shadow-orange-200">
-        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      </div>
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      <!-- Dark gradient background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-stone-900 via-orange-950 to-red-950 -z-10"></div>
+      <!-- Decorative blurs -->
+      <div class="absolute top-20 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -z-10"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-red-500/10 rounded-full blur-3xl -z-10"></div>
 
-      <!-- Badges -->
-      <div class="flex flex-wrap justify-center gap-3 mb-6">
-        <span class="px-3 py-1.5 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full">Service Website</span>
-        <span class="px-3 py-1.5 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full uppercase tracking-wide">Coming Soon</span>
-      </div>
+      <div class="mx-auto max-w-5xl px-6 py-20 text-center reveal">
 
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-4">AutoFix Pro</h1>
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/20 border border-orange-500/30 rounded-full text-orange-300 text-sm font-medium mb-8">
+          <span class="w-1.5 h-1.5 bg-orange-400 rounded-full" aria-hidden="true"></span>
+          Ottawa's Trusted Truck &amp; Fleet Repair Specialists
+        </div>
 
-      <p class="text-slate-500 text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-        A future service website design for a truck repair business, focused on clear service information, trust, and easy contact.
-      </p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+          Professional Truck Repair<br class="hidden sm:block" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
+            You Can Count On
+          </span>
+        </h1>
 
-      <!-- Divider -->
-      <div class="w-16 h-1 bg-gradient-to-r from-orange-400 to-red-500 rounded-full mx-auto mb-8"></div>
-
-      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-10 text-left">
-        <p class="text-slate-600 text-sm leading-relaxed">
-          <span class="font-semibold text-slate-800">Case study status:</span> This case study will be added later in the semester as part of my SEG3125 portfolio. It will include research, wireframes, visual design decisions, and a reflection on UI/UX principles applied.
+        <p class="text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+          AutoFix Pro delivers fast, reliable truck and fleet maintenance at our fully equipped Ottawa shop.
+          Book online in minutes — no phone call needed.
         </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <a href="#booking"
+             class="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-all duration-200 shadow-lg shadow-orange-900/40 hover:-translate-y-0.5">
+            Book an Appointment
+          </a>
+          <a href="#services"
+             class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200 hover:-translate-y-0.5">
+            View Services
+          </a>
+        </div>
+
+        <!-- Trust stats -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-3xl mx-auto">
+          <div class="text-center">
+            <div class="text-3xl font-extrabold text-white">20+</div>
+            <div class="text-slate-400 text-sm mt-1">Years Experience</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-extrabold text-white">5,000+</div>
+            <div class="text-slate-400 text-sm mt-1">Repairs Completed</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-extrabold text-white">4.9 ★</div>
+            <div class="text-slate-400 text-sm mt-1">Average Rating</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-extrabold text-white">Same-Day</div>
+            <div class="text-slate-400 text-sm mt-1">Service Available</div>
+          </div>
+        </div>
       </div>
 
-      <a href="index.html"
-         class="inline-flex items-center gap-2 px-6 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-lg shadow-blue-200 hover:-translate-y-0.5">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        Back to Portfolio
-      </a>
-    </div>
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <a href="#services" aria-label="Scroll to services" class="flex flex-col items-center gap-2 text-slate-400 hover:text-orange-400 transition-colors text-xs">
+          <span>Scroll</span>
+          <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES
+    ============================================================ -->
+    <section id="services" class="py-24 bg-white">
+      <div class="mx-auto max-w-6xl px-6">
+
+        <div class="text-center mb-14 reveal">
+          <p class="text-orange-600 text-sm font-semibold uppercase tracking-widest mb-3">What We Do</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Our Services</h2>
+          <p class="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
+            From routine maintenance to complex repairs — we handle trucks, vans, and commercial fleets of all sizes.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Oil Change -->
+          <article class="reveal group bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-orange-200 transition-all duration-300">
+            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors duration-300">
+              <svg class="w-6 h-6 text-orange-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Oil &amp; Filter Change</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Conventional, synthetic, or high-mileage oil changes for all truck and van sizes.</p>
+            <span class="text-orange-600 font-bold text-sm">From $89.99</span>
+          </article>
+
+          <!-- Brakes -->
+          <article class="reveal group bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-orange-200 transition-all duration-300">
+            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors duration-300">
+              <svg class="w-6 h-6 text-orange-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Brake Inspection &amp; Service</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Full brake system inspection, pad replacement, and rotor resurfacing for safe stops.</p>
+            <span class="text-orange-600 font-bold text-sm">From $149.99</span>
+          </article>
+
+          <!-- Tires -->
+          <article class="reveal group bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-orange-200 transition-all duration-300">
+            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors duration-300">
+              <svg class="w-6 h-6 text-orange-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Tire Rotation &amp; Balancing</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Extend tire life and improve handling with a professional rotation and precision balancing.</p>
+            <span class="text-orange-600 font-bold text-sm">From $79.99</span>
+          </article>
+
+          <!-- Diagnostics -->
+          <article class="reveal group bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-orange-200 transition-all duration-300">
+            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors duration-300">
+              <svg class="w-6 h-6 text-orange-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Engine Diagnostics</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Computerized diagnostic scan to identify engine warning lights and system faults.</p>
+            <span class="text-orange-600 font-bold text-sm">From $129.99</span>
+          </article>
+
+          <!-- Transmission -->
+          <article class="reveal group bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-orange-200 transition-all duration-300">
+            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-5 group-hover:bg-orange-500 transition-colors duration-300">
+              <svg class="w-6 h-6 text-orange-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Transmission Service</h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Fluid flush, filter replacement, and full transmission inspection for smooth shifting.</p>
+            <span class="text-orange-600 font-bold text-sm">From $249.99</span>
+          </article>
+
+          <!-- Fleet Package -->
+          <article class="reveal group bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 border border-orange-200 shadow-sm hover:shadow-md hover:border-orange-400 transition-all duration-300">
+            <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mb-5 group-hover:bg-orange-600 transition-colors duration-300">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <h3 class="text-lg font-bold text-slate-900">Fleet Maintenance Package</h3>
+              <span class="px-2 py-0.5 bg-orange-500 text-white text-xs font-semibold rounded-full">Popular</span>
+            </div>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">Comprehensive scheduled maintenance for commercial fleets — oil, brakes, tires, and more.</p>
+            <span class="text-orange-600 font-bold text-sm">From $399.99</span>
+          </article>
+
+        </div>
+
+        <div class="text-center mt-10 reveal">
+          <a href="#booking" class="inline-flex items-center gap-2 px-7 py-3.5 bg-orange-500 text-white font-semibold rounded-xl hover:bg-orange-600 transition-all duration-200 shadow-lg shadow-orange-100 hover:-translate-y-0.5">
+            Book a Service
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS
+    ============================================================ -->
+    <section id="how-it-works" class="py-24 bg-stone-50">
+      <div class="mx-auto max-w-6xl px-6">
+
+        <div class="text-center mb-14 reveal">
+          <p class="text-orange-600 text-sm font-semibold uppercase tracking-widest mb-3">Simple Process</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">How It Works</h2>
+          <p class="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
+            Book your appointment in three easy steps — no waiting on hold, no hassle.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <!-- Step 1 -->
+          <div class="reveal text-center">
+            <div class="relative inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-2xl mb-5 mx-auto">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+              <span class="absolute -top-2 -right-2 w-6 h-6 bg-orange-500 text-white text-xs font-bold rounded-full flex items-center justify-center">1</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Choose Your Service</h3>
+            <p class="text-slate-500 leading-relaxed">Select from our full list of services — oil changes, brakes, diagnostics, fleet maintenance, and more.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="reveal text-center" style="transition-delay:0.1s">
+            <div class="relative inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-2xl mb-5 mx-auto">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="absolute -top-2 -right-2 w-6 h-6 bg-orange-500 text-white text-xs font-bold rounded-full flex items-center justify-center">2</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Pick a Date &amp; Time</h3>
+            <p class="text-slate-500 leading-relaxed">Select a date and one of our available time slots that fits your schedule. Same-day slots available.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="reveal text-center" style="transition-delay:0.2s">
+            <div class="relative inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-2xl mb-5 mx-auto">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="absolute -top-2 -right-2 w-6 h-6 bg-orange-500 text-white text-xs font-bold rounded-full flex items-center justify-center">3</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Get It Done</h3>
+            <p class="text-slate-500 leading-relaxed">Bring your vehicle in at your booked time. Our certified technicians will handle the rest.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BOOKING FORM (multi-step interactive prototype)
+    ============================================================ -->
+    <section id="booking" class="py-24 bg-white">
+      <div class="mx-auto max-w-3xl px-6">
+
+        <div class="text-center mb-12 reveal">
+          <p class="text-orange-600 text-sm font-semibold uppercase tracking-widest mb-3">Online Booking</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Book an Appointment</h2>
+          <p class="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
+            Fill in the steps below to request your appointment. We'll confirm within 2 hours.
+          </p>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="mb-10 reveal">
+          <div class="flex justify-between mb-3 text-xs font-semibold text-slate-500 px-1">
+            <span id="step-label-1">Service</span>
+            <span id="step-label-2">Date &amp; Time</span>
+            <span id="step-label-3">Your Details</span>
+          </div>
+          <div class="relative h-2 bg-slate-100 rounded-full">
+            <div id="progress-fill" class="absolute top-0 left-0 h-2 bg-orange-500 rounded-full transition-all duration-500" style="width:0%"></div>
+          </div>
+          <div class="flex justify-between mt-2 px-1">
+            <div id="step-dot-1" class="w-6 h-6 rounded-full border-2 border-slate-300 bg-white text-slate-400 text-xs font-bold flex items-center justify-center transition-all duration-300">1</div>
+            <div id="step-dot-2" class="w-6 h-6 rounded-full border-2 border-slate-300 bg-white text-slate-400 text-xs font-bold flex items-center justify-center transition-all duration-300">2</div>
+            <div id="step-dot-3" class="w-6 h-6 rounded-full border-2 border-slate-300 bg-white text-slate-400 text-xs font-bold flex items-center justify-center transition-all duration-300">3</div>
+          </div>
+        </div>
+
+        <!-- ── STEP 1: Choose Service ── -->
+        <div id="booking-step-1" class="reveal">
+          <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 sm:p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 1 — Choose a Service</h3>
+            <p class="text-slate-500 text-sm mb-6">Select the service you need. You can add more at the shop if required.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" role="radiogroup" aria-label="Service selection">
+
+              <button type="button"
+                class="service-option text-left p-4 rounded-xl border border-slate-200 hover:border-orange-300 hover:bg-orange-50 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                data-service="Oil &amp; Filter Change"
+                data-price="From $89.99"
+                aria-pressed="false">
+                <div class="font-semibold text-slate-900 text-sm">Oil &amp; Filter Change</div>
+                <div class="text-orange-600 text-xs font-medium mt-0.5">From $89.99</div>
+              </button>
+
+              <button type="button"
+                class="service-option text-left p-4 rounded-xl border border-slate-200 hover:border-orange-300 hover:bg-orange-50 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                data-service="Brake Inspection &amp; Service"
+                data-price="From $149.99"
+                aria-pressed="false">
+                <div class="font-semibold text-slate-900 text-sm">Brake Inspection &amp; Service</div>
+                <div class="text-orange-600 text-xs font-medium mt-0.5">From $149.99</div>
+              </button>
+
+              <button type="button"
+                class="service-option text-left p-4 rounded-xl border border-slate-200 hover:border-orange-300 hover:bg-orange-50 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                data-service="Tire Rotation &amp; Balancing"
+                data-price="From $79.99"
+                aria-pressed="false">
+                <div class="font-semibold text-slate-900 text-sm">Tire Rotation &amp; Balancing</div>
+                <div class="text-orange-600 text-xs font-medium mt-0.5">From $79.99</div>
+              </button>
+
+              <button type="button"
+                class="service-option text-left p-4 rounded-xl border border-slate-200 hover:border-orange-300 hover:bg-orange-50 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                data-service="Engine Diagnostics"
+                data-price="From $129.99"
+                aria-pressed="false">
+                <div class="font-semibold text-slate-900 text-sm">Engine Diagnostics</div>
+                <div class="text-orange-600 text-xs font-medium mt-0.5">From $129.99</div>
+              </button>
+
+              <button type="button"
+                class="service-option text-left p-4 rounded-xl border border-slate-200 hover:border-orange-300 hover:bg-orange-50 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                data-service="Transmission Service"
+                data-price="From $249.99"
+                aria-pressed="false">
+                <div class="font-semibold text-slate-900 text-sm">Transmission Service</div>
+                <div class="text-orange-600 text-xs font-medium mt-0.5">From $249.99</div>
+              </button>
+
+              <button type="button"
+                class="service-option text-left p-4 rounded-xl border border-orange-200 bg-orange-50/50 hover:border-orange-400 hover:bg-orange-50 transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                data-service="Fleet Maintenance Package"
+                data-price="From $399.99"
+                aria-pressed="false">
+                <div class="flex items-center gap-2">
+                  <span class="font-semibold text-slate-900 text-sm">Fleet Maintenance Package</span>
+                  <span class="px-1.5 py-0.5 bg-orange-500 text-white text-xs font-semibold rounded">Popular</span>
+                </div>
+                <div class="text-orange-600 text-xs font-medium mt-0.5">From $399.99</div>
+              </button>
+
+            </div>
+
+            <p id="error-step-1" class="hidden text-red-500 text-sm mt-4" role="alert"></p>
+
+            <div class="flex justify-end mt-6">
+              <button id="next-step-1"
+                class="px-7 py-3 bg-orange-500 text-white font-semibold rounded-xl hover:bg-orange-600 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+                Next: Date &amp; Time →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── STEP 2: Date & Time ── -->
+        <div id="booking-step-2" class="hidden">
+          <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 sm:p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 2 — Select Date &amp; Time</h3>
+            <p class="text-slate-500 text-sm mb-6">Pick a date and choose one of the available time slots.</p>
+
+            <!-- Date input -->
+            <div class="mb-6">
+              <label for="booking-date" class="block text-sm font-semibold text-slate-700 mb-2">
+                Preferred Date <span class="text-red-500" aria-label="required">*</span>
+              </label>
+              <input
+                type="date"
+                id="booking-date"
+                name="booking-date"
+                class="w-full sm:w-64 px-4 py-2.5 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-colors"
+                required />
+            </div>
+
+            <!-- Time slots -->
+            <div>
+              <p class="text-sm font-semibold text-slate-700 mb-3">
+                Available Time Slots <span class="text-red-500" aria-label="required">*</span>
+              </p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" role="group" aria-label="Time slot selection">
+                <button type="button" class="time-slot px-3 py-2.5 border border-slate-200 bg-white text-slate-700 text-sm font-medium rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" data-time="8:00 AM">8:00 AM</button>
+                <button type="button" class="time-slot px-3 py-2.5 border border-slate-200 bg-white text-slate-700 text-sm font-medium rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" data-time="9:00 AM">9:00 AM</button>
+                <button type="button" class="time-slot px-3 py-2.5 border border-slate-200 bg-white text-slate-700 text-sm font-medium rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" data-time="10:00 AM">10:00 AM</button>
+                <button type="button" class="time-slot px-3 py-2.5 border border-slate-200 bg-white text-slate-700 text-sm font-medium rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" data-time="11:00 AM">11:00 AM</button>
+                <button type="button" class="time-slot px-3 py-2.5 border border-slate-200 bg-white text-slate-700 text-sm font-medium rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" data-time="1:00 PM">1:00 PM</button>
+                <button type="button" class="time-slot px-3 py-2.5 border border-slate-200 bg-white text-slate-700 text-sm font-medium rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" data-time="2:00 PM">2:00 PM</button>
+                <button type="button" class="time-slot px-3 py-2.5 border border-slate-200 bg-white text-slate-700 text-sm font-medium rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" data-time="3:00 PM">3:00 PM</button>
+                <button type="button" class="time-slot px-3 py-2.5 border border-slate-200 bg-white text-slate-700 text-sm font-medium rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500" data-time="4:00 PM">4:00 PM</button>
+              </div>
+            </div>
+
+            <p id="error-step-2" class="hidden text-red-500 text-sm mt-4" role="alert"></p>
+
+            <div class="flex justify-between mt-6">
+              <button id="back-step-2"
+                class="px-5 py-3 bg-slate-100 text-slate-700 font-semibold rounded-xl hover:bg-slate-200 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400">
+                ← Back
+              </button>
+              <button id="next-step-2"
+                class="px-7 py-3 bg-orange-500 text-white font-semibold rounded-xl hover:bg-orange-600 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+                Next: Your Details →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── STEP 3: Contact Details ── -->
+        <div id="booking-step-3" class="hidden">
+          <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 sm:p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 3 — Your Details</h3>
+            <p class="text-slate-500 text-sm mb-6">We'll use this to confirm your appointment and reach you if needed.</p>
+
+            <form id="booking-form" novalidate>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+
+                <!-- Name -->
+                <div>
+                  <label for="contact-name" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                    Full Name <span class="text-red-500" aria-label="required">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="contact-name"
+                    placeholder="Marcus Thompson"
+                    autocomplete="name"
+                    required
+                    class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-slate-800 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-colors" />
+                </div>
+
+                <!-- Phone -->
+                <div>
+                  <label for="contact-phone" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                    Phone Number <span class="text-red-500" aria-label="required">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="contact-phone"
+                    name="contact-phone"
+                    placeholder="(613) 555-0100"
+                    autocomplete="tel"
+                    required
+                    class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-slate-800 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-colors" />
+                </div>
+
+                <!-- Email -->
+                <div class="sm:col-span-2">
+                  <label for="contact-email" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                    Email Address <span class="text-red-500" aria-label="required">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="contact-email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                    class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-slate-800 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-colors" />
+                </div>
+
+                <!-- Vehicle info -->
+                <div class="sm:col-span-2">
+                  <label for="contact-vehicle" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                    Vehicle Info <span class="text-slate-400 font-normal">(optional — Year / Make / Model)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-vehicle"
+                    name="contact-vehicle"
+                    placeholder="e.g. 2019 Ford F-150"
+                    class="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-slate-800 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-colors" />
+                </div>
+
+              </div>
+
+              <p id="error-step-3" class="hidden text-red-500 text-sm mb-4" role="alert"></p>
+
+              <div class="flex justify-between">
+                <button id="back-step-3" type="button"
+                  class="px-5 py-3 bg-slate-100 text-slate-700 font-semibold rounded-xl hover:bg-slate-200 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400">
+                  ← Back
+                </button>
+                <button type="submit"
+                  class="px-7 py-3 bg-orange-500 text-white font-bold rounded-xl hover:bg-orange-600 transition-colors duration-200 shadow-lg shadow-orange-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+                  Confirm Booking ✓
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- ── STEP 4: Confirmation ── -->
+        <div id="booking-step-4" class="hidden">
+          <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 sm:p-8 text-center">
+
+            <!-- Success icon -->
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+
+            <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Appointment Requested!</h3>
+            <p class="text-slate-500 text-sm mb-8 max-w-md mx-auto leading-relaxed">
+              Thank you! We've received your booking request. Our team will call you within 2 hours to confirm your appointment.
+            </p>
+
+            <!-- Booking summary -->
+            <div class="bg-stone-50 rounded-xl border border-slate-200 p-5 text-left mb-8 max-w-sm mx-auto">
+              <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Booking Summary</h4>
+              <dl class="space-y-2.5 text-sm">
+                <div class="flex justify-between gap-4">
+                  <dt class="text-slate-500">Service</dt>
+                  <dd id="conf-service" class="font-semibold text-slate-900 text-right"></dd>
+                </div>
+                <div class="flex justify-between gap-4">
+                  <dt class="text-slate-500">Estimated Price</dt>
+                  <dd id="conf-price" class="font-semibold text-orange-600 text-right"></dd>
+                </div>
+                <div class="border-t border-slate-200 pt-2.5 flex justify-between gap-4">
+                  <dt class="text-slate-500">Date</dt>
+                  <dd id="conf-date" class="font-semibold text-slate-900 text-right"></dd>
+                </div>
+                <div class="flex justify-between gap-4">
+                  <dt class="text-slate-500">Time</dt>
+                  <dd id="conf-time" class="font-semibold text-slate-900 text-right"></dd>
+                </div>
+                <div class="border-t border-slate-200 pt-2.5 flex justify-between gap-4">
+                  <dt class="text-slate-500">Name</dt>
+                  <dd id="conf-name" class="font-semibold text-slate-900 text-right"></dd>
+                </div>
+                <div class="flex justify-between gap-4">
+                  <dt class="text-slate-500">Email</dt>
+                  <dd id="conf-email" class="font-semibold text-slate-900 break-all text-right"></dd>
+                </div>
+                <div class="flex justify-between gap-4">
+                  <dt class="text-slate-500">Phone</dt>
+                  <dd id="conf-phone" class="font-semibold text-slate-900 text-right"></dd>
+                </div>
+                <div class="flex justify-between gap-4">
+                  <dt class="text-slate-500">Vehicle</dt>
+                  <dd id="conf-vehicle" class="font-semibold text-slate-900 text-right"></dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- Info note -->
+            <div class="flex items-start gap-3 bg-blue-50 border border-blue-100 rounded-xl p-4 text-left mb-8 max-w-sm mx-auto">
+              <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p class="text-blue-700 text-sm">Please arrive 5 minutes early. Bring your vehicle keys and any relevant service history.</p>
+            </div>
+
+            <button id="book-another"
+              class="px-7 py-3 bg-orange-500 text-white font-semibold rounded-xl hover:bg-orange-600 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+              Book Another Appointment
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHY CHOOSE US
+    ============================================================ -->
+    <section id="about" class="py-24 bg-stone-50">
+      <div class="mx-auto max-w-6xl px-6">
+
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+
+          <!-- Text -->
+          <div class="flex-1 reveal">
+            <p class="text-orange-600 text-sm font-semibold uppercase tracking-widest mb-3">Why AutoFix Pro</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Ottawa's Truck Repair Experts Since 2004</h2>
+            <p class="text-slate-500 text-lg leading-relaxed mb-6">
+              We specialize exclusively in trucks, vans, and commercial vehicles. Our certified technicians have seen every make, every model, and every problem — and they know how to fix it right the first time.
+            </p>
+            <p class="text-slate-500 leading-relaxed mb-8">
+              Whether you manage a fleet of 20 or own a single work truck, we treat every vehicle with the same attention to detail. No unnecessary upsells. No surprise charges. Just honest, quality work.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-slate-900 text-sm">Certified Technicians</div>
+                  <div class="text-slate-500 text-xs mt-0.5">ASE-certified, ongoing training</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-slate-900 text-sm">Transparent Pricing</div>
+                  <div class="text-slate-500 text-xs mt-0.5">No hidden fees, written estimates</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-slate-900 text-sm">Fast Turnaround</div>
+                  <div class="text-slate-500 text-xs mt-0.5">Same-day service on most jobs</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-slate-900 text-sm">Fleet Specialists</div>
+                  <div class="text-slate-500 text-xs mt-0.5">Dedicated fleet accounts available</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats card -->
+          <div class="flex-shrink-0 w-full lg:w-80 reveal">
+            <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-100">
+              <div class="grid grid-cols-2 gap-6">
+                <div class="text-center">
+                  <div class="text-4xl font-extrabold text-orange-500 mb-1">20+</div>
+                  <div class="text-slate-500 text-xs leading-tight">Years in Business</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl font-extrabold text-orange-500 mb-1">5K+</div>
+                  <div class="text-slate-500 text-xs leading-tight">Repairs Completed</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl font-extrabold text-orange-500 mb-1">200+</div>
+                  <div class="text-slate-500 text-xs leading-tight">Fleet Clients</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-4xl font-extrabold text-orange-500 mb-1">4.9★</div>
+                  <div class="text-slate-500 text-xs leading-tight">Google Rating</div>
+                </div>
+              </div>
+              <div class="mt-6 pt-6 border-t border-slate-100 text-center">
+                <p class="text-slate-400 text-xs italic">"AutoFix keeps our fleet on the road. Fast, honest, and fair."</p>
+                <p class="text-slate-600 text-xs font-semibold mt-2">— Marcus T., Fleet Manager</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT & LOCATION
+    ============================================================ -->
+    <section id="contact" class="py-24 bg-white">
+      <div class="mx-auto max-w-6xl px-6">
+
+        <div class="text-center mb-14 reveal">
+          <p class="text-orange-600 text-sm font-semibold uppercase tracking-widest mb-3">Find Us</p>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Contact &amp; Location</h2>
+          <p class="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
+            Drop by the shop, give us a call, or book online — we're here to help.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+          <!-- Address -->
+          <div class="reveal text-center">
+            <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Address</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">
+              1425 Industrial Drive<br />
+              Ottawa, ON K1V 8E4
+            </p>
+          </div>
+
+          <!-- Phone -->
+          <div class="reveal text-center" style="transition-delay:0.1s">
+            <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Phone</h3>
+            <a href="tel:+16135550199" class="text-orange-600 font-semibold hover:text-orange-700 transition-colors">
+              (613) 555-0199
+            </a>
+            <p class="text-slate-400 text-xs mt-1">Mon–Fri, 8 AM–6 PM</p>
+          </div>
+
+          <!-- Hours -->
+          <div class="reveal text-center" style="transition-delay:0.2s">
+            <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Hours</h3>
+            <div class="text-slate-500 text-sm space-y-1">
+              <div class="flex justify-center gap-2">
+                <span>Mon – Fri:</span>
+                <span class="font-medium text-slate-700">8:00 AM – 6:00 PM</span>
+              </div>
+              <div class="flex justify-center gap-2">
+                <span>Saturday:</span>
+                <span class="font-medium text-slate-700">9:00 AM – 3:00 PM</span>
+              </div>
+              <div class="flex justify-center gap-2">
+                <span>Sunday:</span>
+                <span class="font-medium text-red-500">Closed</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="reveal rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 h-56 flex items-center justify-center">
+          <div class="text-center text-slate-400">
+            <svg class="w-10 h-10 mx-auto mb-3 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+            <p class="text-sm font-medium">Map — 1425 Industrial Drive, Ottawa, ON</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <footer class="bg-slate-900 text-slate-400 py-6">
-    <div class="text-center text-sm">
-      <p>© <span id="footer-year"></span> Harkaran Rangi. Built for SEG3125.</p>
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="bg-stone-900 text-slate-400 py-10">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+
+        <!-- Brand -->
+        <div class="flex items-center gap-2.5">
+          <div class="w-7 h-7 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <span class="text-white font-bold text-sm">AutoFix Pro</span>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-sm text-center text-slate-500">
+          © <span id="footer-year"></span> AutoFix Pro · 1425 Industrial Drive, Ottawa, ON · (613) 555-0199
+        </p>
+
+        <!-- Designer credit -->
+        <p class="text-xs text-slate-500">
+          Designed by
+          <a href="index.html" class="text-orange-400 hover:text-orange-300 transition-colors font-medium">Harkaran Rangi</a>
+          &nbsp;·&nbsp; SEG3125
+        </p>
+
+      </div>
     </div>
   </footer>
 
-  <script type="module" src="/src/main.ts"></script>
+  <script type="module" src="/src/service-site.ts"></script>
 </body>
 </html>
